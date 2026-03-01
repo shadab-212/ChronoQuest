@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Quiz — Built by Shadab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated background particles -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--  START SCREEN                          -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="screen active" id="startScreen">
+    <div class="start-inner">
+      <div class="crown">♛</div>
+      <h1 class="start-title">HISTORY<br><span>QUIZ</span></h1>
+      <p class="start-sub">60+ questions · 12 civilizations · Every round unique</p>
+      <div class="tag-row">
+        <span>Ancient</span><span>Wars</span><span>India</span><span>China</span>
+        <span>Japan</span><span>Africa</span><span>Americas</span><span>Russia</span>
+      </div>
+      <button class="start-btn" onclick="startQuiz()">
+        <span class="btn-inner">Begin the Quest</span>
+        <div class="btn-shine"></div>
+      </button>
+      <p class="byline">Built by <strong>Shadab</strong></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--  QUESTION SCREEN                       -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="screen" id="questionScreen">
+
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressBar"></div>
+        </div>
+        <span class="q-num" id="qNum">1 / 10</span>
+      </div>
+      <div class="score-badge">
+        <span class="score-label-txt">SCORE</span>
+        <span class="score-val" id="qScore">0</span>
+      </div>
+    </div>
+
+    <!-- Category pill -->
+    <div class="cat-pill" id="qCategory"></div>
+
+    <!-- Question area -->
+    <div class="question-area">
+      <p class="question-text" id="questionText"></p>
+    </div>
+
+    <!-- Options -->
+    <div class="options-grid" id="optionsGrid"></div>
+
+    <!-- Feedback bar -->
+    <div class="feedback-bar" id="feedback"></div>
+
+    <!-- Next button -->
+    <button class="next-btn" id="nextBtn" onclick="nextQuestion()" style="display:none">
+      Next <span class="arrow">→</span>
+    </button>
+
+    <p class="byline-small">Built by <strong>Shadab</strong></p>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--  RESULT SCREEN                         -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="screen" id="resultScreen">
+    <div class="result-inner">
+      <p class="result-eyebrow">Quest Complete</p>
+      <div class="result-ring-wrap">
+        <svg class="ring-svg" viewBox="0 0 200 200">
+          <circle class="ring-bg" cx="100" cy="100" r="88"/>
+          <circle class="ring-fg" id="ringFg" cx="100" cy="100" r="88"/>
+        </svg>
+        <div class="ring-center">
+          <span class="ring-score" id="scoreNumber"></span>
+          <span class="ring-total">/ 10</span>
+        </div>
+      </div>
+      <p class="result-pct" id="scoreLabel"></p>
+      <h2 class="result-title" id="resultTitle"></h2>
+      <p class="result-msg" id="resultMsg"></p>
+      <button class="start-btn" onclick="restartQuiz()">
+        <span class="btn-inner">Try Again — New Questions</span>
+        <div class="btn-shine"></div>
+      </button>
+      <p class="byline">Built by <strong>Shadab</strong></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
